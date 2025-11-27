@@ -1,0 +1,384 @@
+/* ===========================================
+   partidas.css - GERENCIAMENTO DE PARTIDAS
+   Compatível com tema.css
+   =========================================== */
+
+/* CABEÇALHO DO TORNEIO */
+.torneio-header {
+    background: var(--panel);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.torneio-header h1 {
+    color: var(--text-primary);
+    margin: 15px 0 10px 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.torneio-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.btn-voltar {
+    background: var(--btn);
+    border: none;
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: var(--hover-color);
+    transform: translateY(-1px);
+}
+
+/* CONTROLES */
+.partidas-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-nova-partida {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-nova-partida:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.3);
+}
+
+.filtro-select {
+    background: var(--card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filtro-select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* LISTA DE PARTIDAS */
+.partidas-container h3 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+}
+
+.partidas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARD DE PARTIDA */
+.partida-card {
+    background: var(--panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.partida-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.partida-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.partida-numero {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.partida-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-agendada { background: #fef3cd; color: #856404; }
+.status-andamento { background: #d1ecf1; color: #0c5460; }
+.status-concluida { background: #d4edda; color: #155724; }
+.status-cancelada { background: #f8d7da; color: #721c24; }
+
+/* TIMES DA PARTIDA */
+.partida-times {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.time {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.time-nome {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.time-pontos {
+    display: block;
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.vs {
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* INFORMAÇÕES DA PARTIDA */
+.partida-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.info-item {
+    color: var(--text-primary);
+}
+
+.info-item strong {
+    color: var(--accent);
+}
+
+/* AÇÕES DA PARTIDA */
+.partida-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.partida-actions .btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-editar {
+    background: var(--btn);
+    color: var(--text-primary);
+}
+
+.btn-resultado {
+    background: #28a745;
+    color: white;
+}
+
+.btn-finalizar {
+    background: var(--accent);
+    color: white;
+}
+
+.partida-actions .btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--panel);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-close-modal:hover {
+    color: var(--accent);
+}
+
+/* FORMULÁRIO DO MODAL */
+.modal-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
+.form-textarea {
+    height: 80px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* AÇÕES DO MODAL */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.btn-cancelar {
+    background: var(--btn);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-salvar {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-cancelar:hover,
+.btn-salvar:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .partidas-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .partida-times {
+        flex-direction: column;
+    }
+    
+    .partida-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+}

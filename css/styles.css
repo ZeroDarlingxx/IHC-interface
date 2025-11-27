@@ -1,0 +1,177 @@
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #f8f9fa;
+  --dark-color: #22222a;
+  --light-color: #ffffff;
+  --accent-color: #ff6b6b;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-outline-secondary {
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f8f9fa;
+  border-color: #bbb;
+  color: #333;
+}
+
+.btn-outline-secondary::before {
+  content: "←";
+  display: inline-block;
+}
+
+.card {
+  transition: transform 0.3s ease;
+  border-radius: 12px !important;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 15px;
+  color: rgba(255,255,255,0.9);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 10px auto 0;
+}
+
+.section-description {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-control {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(74, 111, 165, 0.25);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3a5a80;
+}
+
+.btn-tema {
+    background: none;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.btn-tema:hover {
+    background-color: #3a3a3a;
+}
+
+body.light-mode {
+    background-color: #f6f6f6;
+    color: #111;
+}
+
+body.light-mode header {
+    background-color: #ffffff;
+}
+
+body.light-mode .btn-tema {
+    border-color: #222;
+    color: #222;
+}
+
+body.light-mode .btn-tema:hover {
+    background-color: #ddd;
+}

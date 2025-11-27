@@ -1,0 +1,316 @@
+/* ===========================================
+   placar.css - PLACAR AO VIVO
+   Estilo Counter Strike 2
+   =========================================== */
+
+/* CABEÇALHO DA PARTIDA */
+.partida-header {
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.partida-info {
+    flex: 1;
+    text-align: center;
+}
+
+.partida-info h1 {
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.partida-status {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.status-ao-vivo {
+    color: #ff4444;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* PLACAR PRINCIPAL */
+.placar-container {
+    background: var(--panel);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    overflow: hidden;
+}
+
+.times-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--card) 0%, var(--panel) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.time-ct {
+    justify-content: flex-start;
+}
+
+.time-tr {
+    justify-content: flex-end;
+}
+
+.time-logo {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card);
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.time-info h3 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.time-score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 5px;
+}
+
+.vs-container {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin: 10px 0;
+}
+
+.rounds {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.timer {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff4444;
+    font-family: 'Courier New', monospace;
+}
+
+/* SCOREBOARD */
+.scoreboard {
+    padding: 0;
+}
+
+.team-section {
+    padding: 0;
+}
+
+.team-header {
+    background: var(--card);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.team-money {
+    color: #ffd700;
+    font-family: 'Courier New', monospace;
+}
+
+.players-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.players-table th {
+    background: var(--panel);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.8rem;
+}
+
+.players-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.player-row:hover {
+    background: var(--hover-color);
+}
+
+.player-name {
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.player-avatar {
+    font-size: 1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.stat-highlight {
+    color: var(--accent) !important;
+    font-weight: 700;
+}
+
+.stat-positive {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+.stat-negative {
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+.equipment {
+    font-size: 0.75rem;
+    color: var(--text-secondary) !important;
+    text-align: left !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* HISTÓRICO DE ROUNDS */
+.rounds-history {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background: var(--card);
+}
+
+.rounds-history h4 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.rounds-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.round-winner {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.round-winner.ct {
+    background: #4a6fa5;
+}
+
+.round-winner.t {
+    background: #b8860b;
+}
+
+.round-winner.current {
+    background: #ff4444;
+    animation: pulse 1s infinite;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .partida-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .times-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .time {
+        justify-content: center !important;
+    }
+    
+    .players-table {
+        font-size: 0.7rem;
+    }
+    
+    .players-table th,
+    .players-table td {
+        padding: 6px 4px;
+    }
+    
+    .equipment {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .partida-info h1 {
+        font-size: 1.4rem;
+    }
+    
+    .time-logo {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .time-score {
+        font-size: 2rem;
+    }
+    
+    .timer {
+        font-size: 1.4rem;
+    }
+}

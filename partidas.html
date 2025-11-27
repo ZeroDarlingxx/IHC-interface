@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gerenciar Partidas - WolfPack</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/principal.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/partidas.css">
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+
+<body>
+  <!-- HEADER CORRIGIDO - MESMA ESTRUTURA DO PRINCIPAL -->
+  <header class="wp-header">
+    <div class="wp-header-inner container">
+      
+      <!-- MENU / LOGO (ESQUERDA) -->
+      <div class="brand">
+        <img src="img/wolfpack.jpg" alt="Logo WolfPack" class="logo" id="menuToggle">
+        <span class="site-title">WolfPack</span>
+      </div>
+
+      <!-- BARRA DE PESQUISA (CENTRO) -->
+      <div class="header-search">
+        <input id="searchInput" type="text" placeholder="Pesquisar partidas..." aria-label="Pesquisar partidas">
+      </div>
+
+      <!-- BOTÃO DE TEMA (DIREITA) -->
+      <button id="btnTema" class="btn-tema" aria-label="Alternar tema">
+        <span id="iconTema">🌙</span>
+      </button>
+
+      <div class="header-space"></div>
+      
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <button class="close-btn" id="sidebarClose">&times;</button>
+    <nav class="sidebar-nav">
+      <a href="perfil.html">Meu Perfil</a>
+      <a href="partidas.html" class="active">Gerenciar Partidas</a>
+      <a href="principal.html">Página Principal</a>
+      <a href="index.html">Sair</a>
+    </nav>
+  </aside>
+  <div id="overlay" class="overlay" hidden></div>
+
+  <main class="container main-area">
+    
+    <!-- CABEÇALHO DO TORNEIO -->
+    <div class="torneio-header">
+      <button class="btn btn-voltar" onclick="history.back()">← Voltar</button>
+      <h1 id="nomeTorneio">Nome do Torneio</h1>
+      <p id="descricaoTorneio">Descrição do torneio aparecerá aqui</p>
+    </div>
+
+    <!-- CONTROLES DE PARTIDAS -->
+    <div class="partidas-controls">
+      <button class="btn btn-nova-partida" id="btnNovaPartida">+ Nova Partida</button>
+      <div class="filtros">
+        <select id="filtroStatus" class="filtro-select">
+          <option value="todas">Todas as Partidas</option>
+          <option value="agendada">Agendadas</option>
+          <option value="andamento">Em Andamento</option>
+          <option value="concluida">Concluídas</option>
+          <option value="cancelada">Canceladas</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- LISTA DE PARTIDAS -->
+    <div class="partidas-container">
+      <h3>Partidas do Torneio</h3>
+      
+      <div class="partidas-list" id="listaPartidas">
+        <!-- Partidas serão carregadas aqui via JavaScript -->
+        
+        <!-- Exemplo de partida -->
+        <div class="partida-card" data-status="andamento">
+          <div class="partida-header">
+            <span class="partida-numero">Partida #1</span>
+            <span class="partida-status status-andamento">Em Andamento</span>
+          </div>
+          
+          <div class="partida-times">
+            <div class="time time-a">
+              <span class="time-nome">Time Alpha</span>
+              <span class="time-pontos">2</span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="time time-b">
+              <span class="time-nome">Time Beta</span>
+              <span class="time-pontos">1</span>
+            </div>
+          </div>
+          
+          <div class="partida-info">
+            <div class="info-item">
+              <strong>Data:</strong> 15/12/2024 20:00
+            </div>
+            <div class="info-item">
+              <strong>Local:</strong> Arena Central
+            </div>
+            <div class="info-item">
+              <strong>Rodada:</strong> Quartas de Final
+            </div>
+          </div>
+          
+          <div class="partida-actions">
+            <button class="btn btn-editar">Editar</button>
+            <button class="btn btn-resultado">Atualizar Resultado</button>
+            <button class="btn btn-finalizar">Finalizar</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- MODAL PARA NOVA PARTIDA -->
+    <div id="modalPartida" class="modal-overlay" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Nova Partida</h3>
+          <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+        </div>
+        
+        <form id="formPartida" class="modal-form">
+          <div class="form-group">
+            <label for="timeA">Time A:</label>
+            <input type="text" id="timeA" class="form-input" required placeholder="Nome do Time A">
+          </div>
+          
+          <div class="form-group">
+            <label for="timeB">Time B:</label>
+            <input type="text" id="timeB" class="form-input" required placeholder="Nome do Time B">
+          </div>
+          
+          <div class="form-group">
+            <label for="dataPartida">Data e Hora:</label>
+            <input type="datetime-local" id="dataPartida" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="localPartida">Local:</label>
+            <input type="text" id="localPartida" class="form-input" placeholder="Local da partida">
+          </div>
+          
+          <div class="form-group">
+            <label for="rodadaPartida">Rodada/Fase:</label>
+            <select id="rodadaPartida" class="form-select">
+              <option value="grupos">Fase de Grupos</option>
+              <option value="oitavas">Oitavas de Final</option>
+              <option value="quartas">Quartas de Final</option>
+              <option value="semifinal">Semifinal</option>
+              <option value="final">Final</option>
+              <option value="outra">Outra</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="observacoesPartida">Observações:</label>
+            <textarea id="observacoesPartida" class="form-textarea" placeholder="Observações adicionais..."></textarea>
+          </div>
+          
+          <div class="modal-actions">
+            <button type="button" class="btn btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button type="submit" class="btn btn-salvar">Salvar Partida</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer text-center">
+    <p>&copy; 2025 WolfPack. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/torneios.js"></script>
+  <script src="js/tema.js"></script>
+  <script src="js/partidas.js"></script>
+</body>
+</html>

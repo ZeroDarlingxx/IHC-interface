@@ -1,0 +1,194 @@
+/* ======================================================
+   tema.css - WolfPack (Unificado, compatível com projeto)
+   ====================================================== */
+
+:root {
+  /* Tema Escuro (padrão) - Baseado no principal.css */
+  --bg: #121223;
+  --panel: #1e1e2f;
+  --card: #2a2a3d;
+  --muted: #c3c7cc;
+  --accent: #58a6ff;
+  --btn: #30363d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c7cc;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --hover-color: #313641;
+  --overlay-color: rgba(0, 0, 0, 0.45);
+  
+  /* Variáveis do styles.css para compatibilidade */
+  --primary-color: #58a6ff;
+  --secondary-color: #1e1e2f;
+  --dark-color: #121223;
+  --light-color: #ffffff;
+}
+
+[data-theme="light"] {
+  /* Tema Claro - BRANCO PURO COM LARANJA */
+  --bg: #ffffff;
+  --panel: #f8f9fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #ff6b35;
+  --btn: #ff6b35;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --border-color: #d1d5db;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --hover-color: #f3f4f6;
+  --overlay-color: rgba(0, 0, 0, 0.12);
+  
+  /* Sobrescrevendo styles.css para tema claro */
+  --primary-color: #ff6b35;
+  --secondary-color: #ffffff;
+  --dark-color: #1f2937;
+  --light-color: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  /* Tema Escuro explícito */
+  --bg: #121223;
+  --panel: #1e1e2f;
+  --card: #2a2a3d;
+  --muted: #c3c7cc;
+  --accent: #58a6ff;
+  --btn: #30363d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c7cc;
+  --border-color: rgba(255,255,255,0.08);
+  --shadow-color: rgba(0,0,0,0.5);
+  --hover-color: #313641;
+  --overlay-color: rgba(0, 0, 0, 0.45);
+}
+
+/* APLICAÇÃO GLOBAL */
+html, body {
+  background: var(--bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* HEADER */
+.wp-header {
+  background: var(--panel);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: background-color 0.3s ease;
+}
+
+html[data-theme="light"] .wp-header {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* BOTÃO TEMA */
+.btn-tema {
+  background: var(--card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.btn-tema:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--panel);
+}
+
+html[data-theme="light"] .sidebar {
+  background: var(--card);
+  border-right: 3px solid var(--accent);
+}
+
+/* CARDS E ELEMENTOS */
+.card, .tournament-card, .tournament-item, .highlight-section, .main-area, .tournament-list {
+  background: var(--card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* BOTÕES */
+.btn, .btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--panel);
+  color: var(--text-secondary);
+}
+
+html[data-theme="light"] .footer {
+  border-top: 3px solid var(--accent);
+}
+
+/* OVERLAY */
+.overlay {
+  background: var(--overlay-color);
+}
+
+/* TRANSITIONS */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===========================================
+   CORREÇÕES ESPECÍFICAS PARA CARDS
+   =========================================== */
+
+/* Garantir que os cards tenham borda visível em ambos os temas */
+.tournament-card {
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 2px 8px var(--shadow-color) !important;
+}
+
+/* Correção específica para modo claro */
+html[data-theme="light"] .tournament-card {
+    border: 1px solid var(--border-color) !important;
+    background: var(--card) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Hover dos cards no modo claro */
+html[data-theme="light"] .tournament-card:hover {
+    border-color: var(--accent) !important;
+    background: var(--hover-color) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.18) !important;
+}
+
+/* Garantir que os tournament-items também tenham borda */
+.tournament-item {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    margin-bottom: 10px !important;
+    padding: 12px !important;
+    background: var(--card) !important;
+    transition: all 0.3s ease !important;
+}
+
+html[data-theme="light"] .tournament-item {
+    border: 1px solid var(--border-color) !important;
+    background: var(--card) !important;
+}
+
+.tournament-item:hover {
+    border-color: var(--accent) !important;
+    background: var(--hover-color) !important;
+    transform: translateY(-2px) !important;
+}
