@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WolfPack - Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/tema.css"> 
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="logo-container">
+        <img src="img/wolfpack.jpg" alt="Logo WolfPack" class="logo">
+        <h1>WolfPack</h1>
+      </div>
+
+      <h2>Entrar</h2>
+      <form class="login-form" action="principal.html" method="get">
+        <div class="form-group">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <button type="submit" class="btn-login">Entrar</button>
+
+        <p class="register-text">
+          Ainda não tem conta?
+          <a href="#" onclick="alert('Funcionalidade de cadastro em desenvolvimento!')">Cadastre-se</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 WolfPack. Todos os direitos reservados.</p>
+  </footer>
+
+  <script type="module">
+  import { authAPI } from './js/api.js';
+  
+  document.querySelector('.login-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+    
+    if (!email.trim() || !senha.trim()) {
+      alert('Por favor, preencha todos os campos!');
+      return;
+    }
+    
+    try {
+      // Mostrar loading
+      const btn = document.querySelector('.btn-login');
+      const originalText = btn.textContent;
+      btn.textContent = 'Entrando...';
+      btn.disabled = true;
+      
+      // Fazer login
+      const result = await authAPI.login(email, senha);
+      
+      if (result.success) {
+        // Salvar token e dados do usuário
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('user', JSON.stringify(result.user));
+        
+        // Redirecionar para página principal
+        window.location.href = 'principal.html';
+      } else {
+        alert('Login falhou: ' + result.message);
+      }
+      
+    } catch (error) {
+      console.error('Erro no login:', error);
+      alert('Erro ao fazer login. Tente novamente.');
+    } finally {
+      // Restaurar botão
+      const btn = document.querySelector('.btn-login');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+  
+  // Adicionar link para registro
+  document.querySelector('.register-text a').onclick = function(e) {
+    e.preventDefault();
+    alert('Para se cadastrar, use: email: admin@wolfpack.com, senha: 123456');
+  };
+</script>
+</body>
+</html>
